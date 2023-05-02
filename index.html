@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Simple Notes</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <style>
+    body {
+  background-color: #F9E79F;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: #F4D03F;
+  color: #333;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+form {
+  margin: 20px;
+}
+
+textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 200px;
+  padding: 10px;
+  width: 100%;
+  background-color: #F2F2F2;
+  color: #333;
+}
+
+  </style>
+<body>
+  <h1>Notes</h1>
+  <form>
+    <textarea id="not-alani" name="not-alani" placeholder="You can write your note here..."></textarea>
+    <div class="buttons">
+
+      <button type="button" onclick="temizle()">Clear</button>
+    </div>
+  </form>
+  <script>
+    var notAlani = document.getElementById('not-alani');
+
+    // Sayfa yüklendiğinde notları yükle
+    function notlariYukle() {
+      notAlani.value = localStorage.getItem('notlar');
+    }
+    window.addEventListener('load', notlariYukle);
+
+    // Notları kaydet
+    function notlariKaydet() {
+      localStorage.setItem('notlar', notAlani.value);
+    }
+
+    // Form gönderildiğinde notları kaydet
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+      notlariKaydet();
+      event.preventDefault();
+    });
+
+    // Notları otomatik olarak kaydet
+    notAlani.addEventListener('input', function() {
+      notlariKaydet();
+    });
+
+    // Notları temizle
+    function temizle() {
+      localStorage.removeItem('notlar');
+      notAlani.value = '';
+    }
+  </script>
+</body>
+
+</html>
