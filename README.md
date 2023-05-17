@@ -19,3 +19,6 @@ To use Simple Notes, simply open the index.html file in your web browser. Once t
 
 ## Size
 One of the key features of Simple Notes is its small size. The entire application is less than 2KB in size, making it extremely lightweight and fast to load. This makes it ideal for situations where bandwidth is limited or where page load speed is a priority.
+
+
+* Demo: https://dogukansahil.com.tr/simplenotes/index.html 
